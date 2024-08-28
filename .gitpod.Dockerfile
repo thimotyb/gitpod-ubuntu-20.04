@@ -1,0 +1,19 @@
+# .gitpod.Dockerfile
+
+# Base the workspace on Ubuntu 20.04
+FROM ubuntu:20.04
+
+# Ensure apt is non-interactive
+ENV DEBIAN_FRONTEND=noninteractive
+
+# Update and install essential packages
+RUN apt-get update && apt-get install -y \
+  git \
+  curl \
+  wget \
+  vim \
+  build-essential \
+  && rm -rf /var/lib/apt/lists/*
+
+# Set the default shell to bash
+SHELL ["/bin/bash", "-c"]
