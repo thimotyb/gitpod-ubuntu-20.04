@@ -1,10 +1,18 @@
-image: ghcr.io/traversaro/gitpod-ubuntu-20.04:latest
-ports:
-- port: 6080
-  onOpen: notify
-- port: 10000-20000
-  onOpen: ignore
-workspaceLocation: "."
+# .gitpod.yml
+
+image:
+  file: .gitpod.Dockerfile
+
 tasks:
-- command: start-vnc-session.sh
-- command: gp await-port 6080 && gp preview $(gp url 6080)
+  - init: echo "Ubuntu 20.04 workspace initialized!"
+
+#image: ghcr.io/traversaro/gitpod-ubuntu-20.04:latest
+#ports:
+#- port: 6080
+#  onOpen: notify
+#- port: 10000-20000
+#  onOpen: ignore
+#workspaceLocation: "."
+#tasks:
+#- command: start-vnc-session.sh
+#- command: gp await-port 6080 && gp preview $(gp url 6080)
